@@ -1,0 +1,19 @@
+[Unit]
+Description=backstage
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Environment="NODE_OPTIONS=--max_old_space_size=16192"
+User=pi
+Group=pi
+Restart=always
+RestartSec=2
+StartLimitInterval=0
+Type=simple
+WorkingDirectory=/home/pi/backstage
+ExecStart="yarn dev"
+
+[Install]
+WantedBy=multi-user.target
+
