@@ -1,6 +1,6 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://localhost:3010
 
 organization:
   name: My Company
@@ -22,23 +22,14 @@ backend:
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: http://localhost:3000
+    origin: http://localhost:3010
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
-    # config options: https://node-postgres.com/apis/client
-    client: pg
-    connection:
-      host: ${POSTGRES_HOST}
-      port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
-      password: ${POSTGRES_PASSWORD}
-      # https://node-postgres.com/features/ssl
-      # ssl: require # see https://www.postgresql.org/docs/current/libpq-ssl.html Table 33.1. SSL Mode Descriptions (e.g. require)
-        #ca: # if you have a CA file and want to verify it you can uncomment this section
-        #$file: <file-path>/ca/server.crt
+    client: better-sqlite3
+    connection: ':memory:'
   cache:
     store: memory
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
@@ -74,12 +65,7 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  environment: development
-  providers:
-    github:
-      development:
-        clientId: 91ae349103ad78d2ca58
-        clientSecret: 573784c599747db90442309cc319cdbe7cc01210
+  providers: {}
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
