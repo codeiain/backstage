@@ -55,6 +55,10 @@ import {
 
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
+import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
+import {
+  EntityGrafanaDashboardsCard,
+} from '@k-phoen/backstage-plugin-grafana';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -120,7 +124,11 @@ const overviewContent = (
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
-
+    <Grid item md={6}>
+      {/* Grafana alert card start */}
+      <EntityGrafanaDashboardsCard />
+      {/* Grafana alert card end */}
+    </Grid>
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
     </Grid>
@@ -150,7 +158,11 @@ const serviceEntityPage = (
         </Grid>
       </Grid>
     </EntityLayout.Route>
-
+    <EntityLayout.Route 
+      path="/code-insights"
+      title="Code Insights">
+      <EntityGithubInsightsContent />
+    </EntityLayout.Route>
     <EntityLayout.Route path="/dependencies" title="Dependencies">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>

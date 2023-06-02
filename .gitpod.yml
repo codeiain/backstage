@@ -11,10 +11,10 @@ tasks:
 
 ports:
   - name: Web App
-    description: The main application web server
+    description: UI
     port: 3010
     onOpen: open-browser
   - name: backend
-    description: The main application web server
+    description: backend
     port: 7070
 
