@@ -3,7 +3,7 @@ app:
   baseUrl: http://localhost:3010
 
 organization:
-  name: My Company
+  name: Iain
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -65,7 +65,12 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
+  environment: development
+  providers:
+    github:
+      development:
+        clientId: d77a072b159e86032458
+        clientSecret: f349f3755197c3756fec60ff90c9806db7ad5040
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -78,8 +83,8 @@ catalog:
     - allow: [Component, System, API, Resource, Location]
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
-    - type: file
-      target: ../../examples/entities.yaml
+    # - type: file
+    #   target: ../../examples/entities.yaml
 
     # Local example template
     - type: file
@@ -93,7 +98,7 @@ catalog:
       rules:
         - allow: [User, Group]
 
-    ## Uncomment these lines to add more example data
+    # Uncomment these lines to add more example data
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 

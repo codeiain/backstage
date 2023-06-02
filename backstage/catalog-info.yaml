@@ -1,3 +1,4 @@
+---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
@@ -11,3 +12,12 @@ spec:
   type: website
   owner: john@example.com
   lifecycle: experimental
+---
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: openai
+spec:
+  owner: me
+---
